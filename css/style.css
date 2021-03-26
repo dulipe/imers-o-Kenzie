@@ -1,24 +1,3 @@
-/*
-Theme Name: Start sua carreira
-Theme URI: http://www.startsuacarreira.com.br
-Author: Kenzie Academy BR
-Author URI: https://kenzie.com.br;
-Description: Descrição do thema.
-Version: 1.0
---------------------------------------------
-ESTRUTURA BASE
---------------------------------------------
-**** DECLARAÇÃO DE VARIAVEIS
-**** ESTILOS GERAIS
-**** BODY
-**** HEADER
-**** FOOTER
-**** PÁGINA INICIAL
-**** EXTRAS
-**** @MEDIA
-font-family: 'Open Sans', sans-serif;
-*/
-
 /* ESTILOS GERAIS */
 html, body, figure, img, div, input, textarea, p, h1, h2, h3, h4, h5, h6, ul, li, a, main{
     margin: 0;
@@ -123,6 +102,10 @@ footer nav .redes-sociais li{
 
 footer nav .redes-sociais li a img{
     width: 40px;
+    transition: .2s;
+}
+footer nav .redes-sociais li a:hover img{
+    transform: scale(1.2) translateY(-10px);
 }
 
 
@@ -167,8 +150,37 @@ main .coluna section ul li strong{
     height: 50px;
     display: none;
 }
+header .container{
+    position: relative;
+}
 label{
-    border: solid 2px red;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 52px;
+    height: 30px;
+    background-color: var(--corBackgroundSecundaria);
+    border-radius: 20px;
+    padding: 5px 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+label span{
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-color: #d4e9ff;
+    border-radius: 100%;
+    transition: all ease .3s;
+}
+
+.ativar-dark:checked ~ .dark-mode label{
+    background-color: #d4e9ff;
+}
+.ativar-dark:checked ~ .dark-mode label span{
+    background-color: var(--corBackgroundSecundaria);
+    transform: translateX(21px);
+    transition: all ease .3s;
 }
 
 .ativar-dark:checked ~ .dark-mode{
@@ -190,6 +202,23 @@ label{
     background-color:var(--corBackgroundSecundaria) ;
 } 
 
+@keyframes aumentarLargura{
+    from{
+        width: 0;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+@keyframes aumentarAltura{
+    from{
+        height: 0;
+    }
+    to{
+        height: 100%;
+    }
+}
 
 
 
@@ -222,8 +251,37 @@ label{
         text-align: left;
     }
     main .coluna section{
-        border: 1px solid #d4e9ff;
+        /* border: 2px solid #d4e9ff; */
+        border: 2px solid transparent;
         padding: 20px;
+        position: relative;
+    }
+    main .coluna section span{
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        border: 2px solid transparent;
+    }
+    main .coluna section .topo-direita{
+        top: -2px;
+        left: -2px;
+        animation-name: aumentarLargura, aumentarAltura;
+        animation-duration: 1s, 1s;
+        animation-delay: 2s, 3s;
+        animation-fill-mode: forwards;
+        border-top-color: #050505;
+        border-right-color: #050505;
+    }
+    main .coluna section .baixo-esquerda{
+        bottom: -2px;
+        right: -2px;
+        animation-name: aumentarLargura, aumentarAltura;
+        animation-duration: 1s, 1s;
+        animation-delay: 4s, 5s;
+        animation-fill-mode: forwards;
+        border-bottom-color: #050505;
+        border-left-color: #050505;
     }
     main .coluna{
         padding: 0;
